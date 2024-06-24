@@ -1,7 +1,12 @@
 package com.ms.rest_api.domain.coupon;
 
 import com.ms.rest_api.domain.event.Event;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,14 +23,14 @@ import java.util.UUID;
 public class Coupon {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private UUID id;
 
     private String code;
-    private String discount;
+    private Integer discount;
     private Date valid;
 
     @ManyToOne
-    @JoinColumn(referencedColumnName = "event_id")
+    @JoinColumn(name = "event_id")
     private Event event;
 }

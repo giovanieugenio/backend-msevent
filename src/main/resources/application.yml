@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: rest-api
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/event
+    username: postgres
+    password: 1234
+
+aws:
+  region: us-east-2
+  bucket:
+    name: eventtec-image
